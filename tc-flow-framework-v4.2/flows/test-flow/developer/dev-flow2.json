@@ -1,0 +1,72 @@
+{
+  "name": "test-flow-developer",
+  "headless": false,
+  "baseUrl": "http://teamcenter14dev.molex.com:3000/#/showHome",
+  "credentials": {
+    "username":                                                                                                                             "xingyl4",
+    "password":                                                                                                                             "xingyl4"
+  },
+  "steps": [
+    {
+      "action": "advancedSearch",
+      "inputs": {
+        "advancedSearch.search_id": "6000064127",
+        "advancedSearch.advanced_query_type": 1,
+        "advancedSearch.search_type": 1
+      }
+    },
+    {
+      "action": "createMechDesign",
+      "inputs": {
+        "createMechDesign.document_type": 3,
+        "createMechDesign.document_subtype": 1,
+        "createMechDesign.sap_doc_type": 5,
+        "createMechDesign.molex_restriction": 2,
+        "createMechDesign.name": "Demo MD",
+        "createMechDesign.enable_molex_series": true,
+        "createMechDesign.series_number": "301698",
+        "createMechDesign.rpm_number": "T201636291"
+      }
+    },
+    {
+      "action": "createProductPart",
+      "inputs": {
+        "createProductPart.item_name": "PP-01",
+        "createProductPart.create_series": 1,
+        "createProductPart.series_number": "301698",
+        "createProductPart.rpm_number": "T201636291"
+      }
+    },
+    {
+      "action": "saveAs",
+      "inputs": {
+        "saveAs.source": 1,
+        "saveAs.item_id": "6000063237",
+        "saveAs.search_type": 11,
+        "saveAs.new_name": "MD-Copy",
+        "saveAs.molex_series": 1,
+        "saveAs.series_number": "301698"
+      }
+    },
+    {
+      "action": "createChanges",
+      "inputs": {
+        "createChanges.change_name": "CR-Title",
+        "createChanges.description": "Desc",
+        "createChanges.business_case": "BC",
+        "createChanges.unplanned_change": 2,
+        "createChanges.problem_change_type": 7,
+        "createChanges.primary_change_reason": 12,
+        "createChanges.rpm_number": "T201636291"
+      }
+    },
+    {
+      "action": "submitWorkflow",
+      "inputs": {
+        "submitWorkflow.template": 5,
+        "submitWorkflow.item_id": "CR-000003862",
+        "submitWorkflow.username": "xingyl4"
+      }
+    }
+  ]
+}

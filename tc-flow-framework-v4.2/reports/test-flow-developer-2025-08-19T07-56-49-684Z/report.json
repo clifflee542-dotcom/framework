@@ -1,0 +1,58 @@
+{
+  "flow": "test-flow-developer",
+  "generatedAt": "2025-08-19T07:59:27.090Z",
+  "steps": [
+    {
+      "name": "login",
+      "startedAt": "2025-08-19T07:56:49.686Z",
+      "meta": {
+        "username": "xingyl4"
+      },
+      "finishedAt": "2025-08-19T07:56:54.110Z",
+      "status": "passed",
+      "screenshot": "screenshots/login.png"
+    },
+    {
+      "name": "01-advancedSearch",
+      "startedAt": "2025-08-19T07:56:54.222Z",
+      "meta": {
+        "search_id": "6000064127",
+        "advanced_query_type": "Item Revision...",
+        "search_type": "Item Revision"
+      },
+      "finishedAt": "2025-08-19T07:57:15.400Z",
+      "status": "passed",
+      "screenshot": "screenshots/01-advancedSearch.png"
+    },
+    {
+      "name": "02-createMechDesign",
+      "startedAt": "2025-08-19T07:57:15.563Z",
+      "meta": {
+        "created_id": "3016980040",
+        "name": "Demo MD"
+      },
+      "finishedAt": "2025-08-19T07:58:11.138Z",
+      "status": "passed",
+      "screenshot": "screenshots/02-createMechDesign.png"
+    },
+    {
+      "name": "03-createProductPart",
+      "startedAt": "2025-08-19T07:58:11.478Z",
+      "meta": {
+        "created_id": "3016980041",
+        "ITEM_NAME": "PP-01"
+      },
+      "finishedAt": "2025-08-19T07:58:56.217Z",
+      "status": "passed",
+      "screenshot": "screenshots/03-createProductPart.png"
+    },
+    {
+      "name": "04-saveAs",
+      "startedAt": "2025-08-19T07:58:56.347Z",
+      "finishedAt": "2025-08-19T07:59:26.912Z",
+      "status": "failed",
+      "error": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sw-sectionTitle[title=\"IDENTIFICATION DATA\"]') to be visible\u001b[22m\n\n    at navigateToSaveAs (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\steps\\step-save-as.ts:61:14)\n    at async saveAs (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\steps\\step-save-as.ts:19:3)\n    at async runStep (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\flow.ts:66:10)\n    at async withRetry (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\retry.ts:12:14)\n    at async runFlow (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\flow.ts:203:24)\n    at async <anonymous> (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\main.ts:9:3)",
+      "screenshot": "screenshots/04-saveAs.png"
+    }
+  ]
+}

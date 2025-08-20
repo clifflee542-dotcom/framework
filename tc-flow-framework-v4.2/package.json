@@ -1,0 +1,27 @@
+{
+  "name": "tc-flow-framework",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/main.ts",
+    "flow": "node dist/core/flow.js --flow",
+    "prepare": "playwright install --with-deps",
+    "catalog": "tsx src/tools/catalog.ts",
+    "manifest": "tsx src/tools/gen-manifest.ts",
+    "docs": "npm run catalog && npm run manifest"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.17.0",
+    "typescript": "^5.4.5"
+  }
+}

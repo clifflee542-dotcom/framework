@@ -1,0 +1,15 @@
+{
+  "name": "qa-isolated-steps",
+  "headless": true,
+  "steps": [
+    {
+      "id": "qa-adv",
+      "action": "advancedSearch",
+      "inputs": {
+        "advancedSearch.search_id": "QA-SEARCH-1",
+        "advancedSearch.advanced_query_type": 2,
+        "advancedSearch.search_type": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "./schema/flow.schema.json",
+  "name": "demo-pipeline",
+  "headless": false,
+  "vars": {
+    "rpm1": "T201636291"
+  },
+  "run": {
+    "maxRetries": 1,
+    "retryDelayMs": 800,
+    "backoff": "exponential"
+  },
+  "credentials": {
+    "username":                                                                                                                                "xingyl4",
+    "password":                                                                                                                                "xingyl4"
+  },
+  "baseUrl": "http://teamcenter14dev.molex.com:3000/#/showHome",
+  "steps": [
+    {
+      "id": "createChange1",
+      "action": "createChanges",
+      "inputs": {
+        "createChanges.change_name": "CR ${now:yyyyMMdd-HHmm}",
+        "createChanges.description": "Auto created by ${env.USER}",
+        "createChanges.business_case": "BC demo",
+        "createChanges.unplanned_change": 2,
+        "createChanges.problem_change_type": 7,
+        "createChanges.primary_change_reason": 12,
+        "createChanges.rpm_number": "${vars.rpm1}"
+      },
+      "exports": {
+        "crId": "$.CR_number"
+      }
+    },
+    {
+      "id": "submitFromCR",
+      "action": "submitWorkflow",
+      "inputs": {
+        "submitWorkflow.template": 5,
+        "submitWorkflow.item_id": "${vars.crId|CR-UNKNOWN}",
+        "submitWorkflow.username": "xingyl4"
+      }
+    }
+  ]
+}

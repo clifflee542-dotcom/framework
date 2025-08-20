@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TC Flow",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "headless": {
+      "type": "boolean"
+    },
+    "baseUrl": {
+      "type": "string"
+    },
+    "credentials": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "vars": {
+      "type": "object"
+    },
+    "run": {
+      "type": "object",
+      "properties": {
+        "maxRetries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retryDelayMs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "backoff": {
+          "enum": [
+            "none",
+            "linear",
+            "exponential"
+          ]
+        },
+        "resumeFromReport": {
+          "type": "string"
+        },
+        "startAt": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "stateIn": {
+          "type": "string"
+        },
+        "stateOut": {
+          "type": "string"
+        },
+        "stateOutVarsOnly": {
+          "type": "boolean"
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "object"
+          },
+          "retries": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "exports": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "steps"
+  ]
+}

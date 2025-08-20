@@ -1,0 +1,53 @@
+import { Page } from 'playwright';
+import { selectFromList, ask, PROBLEM_CHANGE_TYPE, PRIMARY_CHANGE_REASON } from '../utils.js';
+export async function createChanges(page: Page) {
+  const CHANGE_NAME = await ask('createChanges.change_name', 'Enter change name:');
+  const DESCRIPTION = await ask('createChanges.description', 'Enter change description:');
+  const BUSINESS_CASE_DESCRIPTION = await ask('createChanges.business_case', 'Enter Business Case Description:');
+  const UNPLANNED_CHANGE = (await ask('createChanges.unplanned_change', 'Enter Unplanned Change (1-Yes 2-No):')) === '1' ? 'Yes' : 'No';
+  const selectedType = await selectFromList('createChanges.problem_change_type', 'Please enter: Problem/Change Type:', PROBLEM_CHANGE_TYPE, 3);
+  const selectedReason = await selectFromList('createChanges.primary_change_reason', 'Please enter: Primary Change Reason:', PRIMARY_CHANGE_REASON, 3);
+  const RPM_NUMBER = (await ask('createChanges.rpm_number', 'Enter RPM attachment number:')).trim();
+  console.log('Executing create change...');
+  await page.locator('.aw-commandId-Awp0ShowHomeFolder').click();
+  await page.locator('div.aw-splm-tableHeaderCellLabel.aw-splm-tableHeaderCellInner', { hasText: 'Item Id' }).waitFor({ timeout: 30000 });
+  await page.waitForSelector('div.sw-sectionTitle[title="Properties"]', { timeout: 30000 });
+  await page.locator('.aw-commandId-Awp0NewGroup').click();
+  await page.locator('.aw-widgets-cellListItem[command-id="Cm1ShowCreateChange"]').click();
+  await page.waitForSelector('div.aw-tcWidgets-modelTypeCellTitle[title="Change Request"]', { timeout: 30000 });
+  await page.locator('div.aw-tcWidgets-modelTypeCellTitle', { hasText: 'Change Request' }).click();
+  await page.waitForSelector('.sw-property-val[name="object_name"]', { timeout: 30000 });
+  await page.locator('.sw-property-val[name="object_name"]').fill(CHANGE_NAME);
+  await page.locator('.sw-property-val[name="object_desc"]').fill(DESCRIPTION);
+  await page.locator('.sw-property-val[data-locator="Problem/Change Type"]').click();
+  await page.waitForSelector('div.sw-cell-valName', { timeout: 30000 });
+  await page.locator('div.sw-cell-valName', { hasText: selectedType }).click();
+  await page.waitForSelector(`.sw-property-val[title="${selectedType}"]`, { timeout: 30000 });
+  await page.locator('input.sw-property-val[data-locator="Primary Change Reason"]').click();
+  await page.waitForSelector('div.sw-cell-valName', { timeout: 30000 });
+  await page.locator('div.sw-cell-valName', { hasText: selectedReason }).click();
+  await page.locator('.sw-property-val[name="REF(revision,D4_ChangeRequestRevisionCreI).d4_BusinessCaseDesc"]').fill(BUSINESS_CASE_DESCRIPTION);
+  await page.locator('.sw-aria-border[aria-label="Unplanned Change"]').click();
+  await page.locator(`.sw-cell-val>.sw-cell-valName[title="${UNPLANNED_CHANGE}"]`).click();
+  await page.locator('.justify-right > button.sw-button').click();
+  try {
+    await page.waitForSelector('span.sw-property-val[data-locator="CR Number"]', { timeout: 30000 });
+    const CR_number = await page.locator('span.sw-property-val[data-locator="CR Number"]').innerText();
+    await page.locator('.aw-commandId-Awp0ShowHomeFolder').click();
+    await page.locator('.aw-search-fullModeSearchIconViewContainer[role="button"]').first().click();
+    await page.locator('.sw-widget-iconContainer[aria-label="selectPrefilter2"]').click();
+    await page.locator('.sw-cell-valName[title="RPM"]').click();
+    await page.locator('input.aw-uiwidgets-searchBox[name="searchBox"]').fill(RPM_NUMBER);
+    await page.waitForTimeout(2000);
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('a.sw-tab-selected[aria-label="Overview"]').then(()=>page.locator('.aw-commandId-Awp0Copy[aria-label="Copy"]').click());
+    await page.locator('.aw-commandId-Awp0ShowHomeFolder').click();
+    await page.locator('div.aw-splm-tableHeaderCellLabel.aw-splm-tableHeaderCellInner', { hasText: 'Item Id' }).waitFor({ timeout: 30000 });
+    await page.waitForSelector('div.sw-sectionTitle[title="Properties"]', { timeout: 30000 });
+    await page.locator(`div.aw-splm-tableCellText[title="${CR_number}"]`, { hasText: CR_number }).first().click();
+    await page.locator('.sw-row[aria-label="Reference Items"]').click();
+    await page.locator('.align-self-stretch[caption="RPM Attachments"] button[aria-label="Paste"]').click();
+    await page.locator('.aw-commandId-Awp0ShowHomeFolder').click();
+    return { CR_number };
+  } catch (e) { return {}; }
+}

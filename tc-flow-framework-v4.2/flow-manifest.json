@@ -1,0 +1,366 @@
+{
+  "generatedAt": "2025-08-19T05:07:30.867Z",
+  "steps": [
+    {
+      "action": "advancedSearch",
+      "title": "Advanced Search",
+      "inputs": [
+        {
+          "key": "advancedSearch.search_id",
+          "label": "Item ID",
+          "required": true,
+          "type": "string",
+          "example": "ITEM-12345"
+        },
+        {
+          "key": "advancedSearch.advanced_query_type",
+          "label": "Advanced Query Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/advancedSearch.ADVANCED_QUERY_TYPE",
+          "example": 1
+        },
+        {
+          "key": "advancedSearch.search_type",
+          "label": "Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/advancedSearch.SEARCH_TYPE",
+          "example": 4
+        }
+      ],
+      "outputs": [
+        "search_id",
+        "advanced_query_type",
+        "search_type"
+      ]
+    },
+    {
+      "action": "createChanges",
+      "title": "Create Change Request",
+      "inputs": [
+        {
+          "key": "createChanges.change_name",
+          "label": "Change Name",
+          "required": true,
+          "type": "string",
+          "example": "CR 2025-08-19 12:30"
+        },
+        {
+          "key": "createChanges.description",
+          "label": "Description",
+          "required": true,
+          "type": "string",
+          "example": "Auto created by pipeline"
+        },
+        {
+          "key": "createChanges.business_case",
+          "label": "Business Case",
+          "required": true,
+          "type": "string",
+          "example": "BC demo"
+        },
+        {
+          "key": "createChanges.unplanned_change",
+          "label": "Unplanned Change (1-Yes 2-No)",
+          "required": true,
+          "type": "number",
+          "example": 2
+        },
+        {
+          "key": "createChanges.problem_change_type",
+          "label": "Problem/Change Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createChanges.PROBLEM_CHANGE_TYPE",
+          "example": 7
+        },
+        {
+          "key": "createChanges.primary_change_reason",
+          "label": "Primary Change Reason (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createChanges.PRIMARY_CHANGE_REASON",
+          "example": 12
+        },
+        {
+          "key": "createChanges.rpm_number",
+          "label": "RPM Attachment Number",
+          "required": true,
+          "type": "string",
+          "example": "RPM-0001"
+        }
+      ],
+      "outputs": [
+        "CR_number"
+      ]
+    },
+    {
+      "action": "deriveChange",
+      "title": "Derive Change",
+      "inputs": [
+        {
+          "key": "deriveChange.item_id",
+          "label": "Change ID",
+          "required": true,
+          "type": "id",
+          "example": "${vars.crId}"
+        }
+      ],
+      "outputs": [
+        "ID"
+      ]
+    },
+    {
+      "action": "createMechDesign",
+      "title": "Create Mechanical Design",
+      "inputs": [
+        {
+          "key": "createMechDesign.document_type",
+          "label": "Document Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createMechDesign.DOCUMENT_TYPE",
+          "example": 4
+        },
+        {
+          "key": "createMechDesign.document_subtype",
+          "label": "Document Subtype (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createMechDesign.DOCUMENT_SUBTYPE[TYPE]",
+          "example": 2
+        },
+        {
+          "key": "createMechDesign.sap_doc_type",
+          "label": "SAP Document Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createMechDesign.SAP_DOC_TYPES",
+          "example": 5
+        },
+        {
+          "key": "createMechDesign.molex_restriction",
+          "label": "Molex Restriction (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/createMechDesign.MOLEX_RESTRICTION",
+          "example": 2
+        },
+        {
+          "key": "createMechDesign.name",
+          "label": "Name",
+          "required": true,
+          "type": "string",
+          "example": "MD ${now:yyyyMMdd}"
+        },
+        {
+          "key": "createMechDesign.enable_molex_series",
+          "label": "Enable Molex Series (true/false or 1/2)",
+          "required": true,
+          "type": "boolean",
+          "example": true
+        },
+        {
+          "key": "createMechDesign.series_number",
+          "label": "Series Number (when enabled)",
+          "required": false,
+          "type": "string",
+          "example": "SER-001"
+        },
+        {
+          "key": "createMechDesign.rpm_number",
+          "label": "RPM Attachment Number",
+          "required": true,
+          "type": "string",
+          "example": "${vars.rpm1}"
+        }
+      ],
+      "outputs": [
+        "created_id",
+        "name"
+      ]
+    },
+    {
+      "action": "createProductPart",
+      "title": "Create Product Part",
+      "inputs": [
+        {
+          "key": "createProductPart.item_name",
+          "label": "Item Name",
+          "required": true,
+          "type": "string",
+          "example": "PP-01"
+        },
+        {
+          "key": "createProductPart.create_series",
+          "label": "Create Molex Series? (1-Yes 2-No)",
+          "required": true,
+          "type": "number",
+          "example": 1
+        },
+        {
+          "key": "createProductPart.series_number",
+          "label": "Series Number (when enabled)",
+          "required": false,
+          "type": "string",
+          "example": "SER-002"
+        },
+        {
+          "key": "createProductPart.rpm_number",
+          "label": "RPM Attachment Number",
+          "required": true,
+          "type": "string",
+          "example": "RPM-0003"
+        }
+      ],
+      "outputs": [
+        "created_id",
+        "ITEM_NAME"
+      ]
+    },
+    {
+      "action": "saveAs",
+      "title": "Save As",
+      "inputs": [
+        {
+          "key": "saveAs.source",
+          "label": "Source (1-Local 2-Repository)",
+          "required": true,
+          "type": "number",
+          "example": 2
+        },
+        {
+          "key": "saveAs.item_id",
+          "label": "Item ID to Save As",
+          "required": true,
+          "type": "id",
+          "example": "${vars.mechId}"
+        },
+        {
+          "key": "saveAs.search_type",
+          "label": "Search Type (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/saveAs.SEARCH_TYPE",
+          "example": 11
+        },
+        {
+          "key": "saveAs.new_name",
+          "label": "New Name (Mech/Product cases)",
+          "required": false,
+          "type": "string",
+          "example": "Copy of ${vars.mechName}"
+        },
+        {
+          "key": "saveAs.molex_series",
+          "label": "Enable Molex Series? (1-Yes 2-No)",
+          "required": false,
+          "type": "number",
+          "example": 1
+        },
+        {
+          "key": "saveAs.series_number",
+          "label": "Series Number (when enabled)",
+          "required": false,
+          "type": "string",
+          "example": "SER-003"
+        }
+      ],
+      "outputs": [
+        "created_id",
+        "NAME"
+      ]
+    },
+    {
+      "action": "submitWorkflow",
+      "title": "Submit to Workflow",
+      "inputs": [
+        {
+          "key": "submitWorkflow.template",
+          "label": "Workflow Template (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/submitWorkflow.WORKFLOW_TEMPLATES",
+          "example": 2
+        },
+        {
+          "key": "submitWorkflow.item_id",
+          "label": "Item ID",
+          "required": true,
+          "type": "id",
+          "example": "CR-XXXX"
+        },
+        {
+          "key": "submitWorkflow.username",
+          "label": "Participant Username",
+          "required": true,
+          "type": "string",
+          "example": "xingyl4"
+        }
+      ],
+      "outputs": [
+        "ID",
+        "WORKFLOW_TEMPLATE"
+      ]
+    },
+    {
+      "action": "runWorkflow",
+      "title": "Run Workflow (complete/approve steps)",
+      "inputs": [
+        {
+          "key": "runWorkflow.item_id",
+          "label": "Item ID",
+          "required": true,
+          "type": "id",
+          "example": "CO-XXXX"
+        },
+        {
+          "key": "runWorkflow.priority",
+          "label": "Priority (index)",
+          "required": true,
+          "type": "number",
+          "notes": "1-Urgent 2-Standard",
+          "example": 2
+        },
+        {
+          "key": "runWorkflow.business_impact",
+          "label": "Business Impact (index)",
+          "required": true,
+          "type": "number",
+          "notes": "1-Low 2-Medium 3-High",
+          "example": 2
+        },
+        {
+          "key": "runWorkflow.plant_code",
+          "label": "Plant Code for PCN (index)",
+          "required": true,
+          "type": "number",
+          "notes": "See catalog.json/runWorkflow.Plant_Code_for_PCN",
+          "example": 3
+        },
+        {
+          "key": "runWorkflow.pcn_required",
+          "label": "PCN Required? (1-Yes 2-No)",
+          "required": true,
+          "type": "number",
+          "example": 2
+        },
+        {
+          "key": "runWorkflow.reason",
+          "label": "Reason for change",
+          "required": true,
+          "type": "string",
+          "example": "Auto test"
+        }
+      ],
+      "outputs": [
+        "ID",
+        "selected_priority",
+        "selected_impact",
+        "selected_plant",
+        "decision"
+      ]
+    }
+  ]
+}

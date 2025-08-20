@@ -1,0 +1,186 @@
+{
+  "advancedSearch": {
+    "ADVANCED_QUERY_TYPE": {
+      "1": "Item Revision...",
+      "2": "Item..."
+    },
+    "SEARCH_TYPE": {
+      "1": "Item Revision",
+      "2": "Change Order Revision",
+      "3": "Change Request Revision",
+      "4": "RPM"
+    }
+  },
+  "saveAs": {
+    "SEARCH_TYPE": {
+      "1": "Any Category",
+      "2": "Any Item Revision",
+      "3": "ICandidate Part Request Revision",
+      "4": "Change Order Revision",
+      "5": "Change Request Revision",
+      "6": "Commercial Part Revision",
+      "7": "Document Revision",
+      "8": "ECAD Collector Revision",
+      "9": "Feature Revision",
+      "10": "Manufacturer Part Revision",
+      "11": "Mech Design Revision",
+      "12": "PCA Revision",
+      "13": "Packaging Part Revision",
+      "14": "Problem Report Revision",
+      "15": "Product Part Revision",
+      "16": "Part Revision",
+      "17": "Product Part Revision",
+      "18": "RPM",
+      "19": "Raw Material Revision",
+      "20": "Schem Revision",
+      "21": "Series Number",
+      "22": "Software Revision",
+      "23": "Tooling Design Request Revision",
+      "24": "Tooling Part Revision"
+    }
+  },
+  "submitWorkflow": {
+    "WORKFLOW_TEMPLATES": {
+      "1": "Design Freeze",
+      "2": "Design Approval Workflow",
+      "3": "Buy or Make Workflow",
+      "4": "Part Approval Workflow",
+      "5": "Change_Request"
+    }
+  },
+  "runWorkflow": {
+    "Priority": {
+      "1": "Urgent",
+      "2": "Standard"
+    },
+    "Business_Impact": {
+      "1": "Low",
+      "2": "Medium",
+      "3": "High"
+    },
+    "Plant_Code_for_PCN": {
+      "1": "1199-Molex Japan LLC",
+      "2": "1201-Molex Singapore Pte Ltd",
+      "3": "2601-Molex Interconnect Shanghai Co.Ltd.",
+      "4": "2701-Molex Interconnect (Chengdu)Co., Ltd",
+      "5": "1701-Dongguan Molex Interconnect Co. Ltd",
+      "6": "1501-Molex (Thailand) Ltd.",
+      "7": "2201-Molex Korea Ltd.",
+      "8": "2101-Molex Taiwan Ltd., Sanchong Branch"
+    }
+  },
+  "createChanges": {
+    "PROBLEM_CHANGE_TYPE": {
+      "1": "Customer Complaint - non QN",
+      "2": "Customer Complaint - QN",
+      "3": "Commercial Part Change/Raw Material Change",
+      "4": "Document - Change",
+      "5": "Document - New",
+      "6": "Manufacturing Change",
+      "7": "Product Design - Change",
+      "8": "Product Design - New",
+      "9": "Reactivate",
+      "10": "Supply Chain",
+      "11": "Test Failure",
+      "12": "Tooling - Change",
+      "13": "Tooling - New"
+    },
+    "PRIMARY_CHANGE_REASON": {
+      "1": "Business Requirement",
+      "2": "Cost Change",
+      "3": "Customer Requirement",
+      "4": "Document Change / Update",
+      "5": "Equipment Transfer, Production Transfer, or Rearrangment",
+      "6": "Facility/Building/Utility Change",
+      "7": "Inspection Test / Method Change",
+      "8": "IT / Software Change",
+      "9": "Labelling Change",
+      "10": "Manufacturing Process Change",
+      "11": "Obsolete / Inactive",
+      "12": "Packaging Method / Quantity Changing",
+      "13": "Product (Fit, Form, Function) Change",
+      "14": "Product Quality",
+      "15": "Production Requirement",
+      "16": "QMS Change",
+      "17": "Reactivate Product (Retraction)",
+      "18": "Regulatory Requirement",
+      "19": "Restart of Inactive Manufacturing Process / Tool",
+      "20": "Supplier Change",
+      "21": "Tooling (Mold, Die, Assembly, Plating) Change",
+      "22": "Tooling Replacement or Capacity Change",
+      "23": "Vendor / Supplier Requirement"
+    }
+  },
+  "createMechDesign": {
+    "DOCUMENT_TYPE": {
+      "1": "ANALYSIS",
+      "2": "CUSTOMER",
+      "3": "PACKAGING",
+      "4": "PRODUCT",
+      "5": "TOOLING"
+    },
+    "DOCUMENT_SUBTYPE": {
+      "ANALYSIS": {
+        "1": "Analysis Design Drawing",
+        "2": "Product Analysis Model",
+        "3": "Structural Analysis Model",
+        "4": "Thermal Analysis Model",
+        "5": "Tooling Analysis Drawing",
+        "6": "Tooling Analysis Model",
+        "7": "Electrical Analysis Model",
+        "8": "Molding Analysis Model",
+        "9": "Tolerance Analysis Model",
+        "10": "Tolerance Analysis Drawing"
+      },
+      "CUSTOMER": {
+        "1": "Product Customer Drawing",
+        "2": "Product Customer Model",
+        "3": "Tooling Customer Drawing",
+        "4": "Tooling Customer Model",
+        "5": "Illustration Reference Model"
+      },
+      "PACKAGING": {
+        "1": "Packaging Design Drawing",
+        "2": "Packaging Design Model"
+      },
+      "PRODUCT": {
+        "1": "Product Design Drawing",
+        "2": "Product Design Model"
+      },
+      "TOOLING": {
+        "1": "Mold/Die Wizard Drawing",
+        "2": "Mold/Die Wizard Model",
+        "3": "Tooling Design Drawing",
+        "4": "Tooling Design Model"
+      }
+    },
+    "SAP_DOC_TYPES": {
+      "1": "AM",
+      "2": "AD",
+      "3": "PSD",
+      "4": "CM",
+      "5": "PSM",
+      "6": "TSD",
+      "7": "CD",
+      "8": "TCM",
+      "9": "TCD",
+      "10": "PCB",
+      "11": "SYM",
+      "12": "GBR",
+      "13": "SP",
+      "14": "FS",
+      "15": "PDD",
+      "16": "PDM",
+      "17": "ES",
+      "18": "PS",
+      "19": "TDM",
+      "20": "TDD"
+    },
+    "MOLEX_RESTRICTION": {
+      "1": "Molex Internal",
+      "2": "Restricted Customer",
+      "3": "General Market",
+      "4": "Restricted Molex Internal"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "flow": "demo-pipeline",
+  "generatedAt": "2025-08-19T05:20:47.589Z",
+  "steps": [
+    {
+      "name": "login",
+      "startedAt": "2025-08-19T05:19:33.745Z",
+      "meta": {
+        "username": "user"
+      },
+      "finishedAt": "2025-08-19T05:19:38.232Z",
+      "status": "passed",
+      "screenshot": "screenshots/login.png"
+    },
+    {
+      "name": "createChange1",
+      "startedAt": "2025-08-19T05:19:38.359Z",
+      "finishedAt": "2025-08-19T05:20:39.182Z",
+      "status": "failed",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.aw-commandId-Awp0ShowHomeFolder')\u001b[22m\n\n    at createChanges (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\steps\\step-create-change.ts:11:58)\n    at async runStep (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\flow.ts:66:10)\n    at async withRetry (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\retry.ts:12:14)\n    at async runFlow (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\core\\flow.ts:203:24)\n    at async <anonymous> (C:\\document\\AutoTest\\tc-flow-framework-v4.2\\src\\main.ts:9:3)",
+      "screenshot": "screenshots/createChange1.png"
+    }
+  ]
+}

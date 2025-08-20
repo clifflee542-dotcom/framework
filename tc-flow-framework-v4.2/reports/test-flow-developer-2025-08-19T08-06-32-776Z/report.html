@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Report - test-flow-developer</title>
+  <style>
+    :root{ --ok:#22c55e; --err:#ef4444; --skip:#a3a3a3; --bd:#e5e7eb; --fg:#111827; --muted:#6b7280; --bg:#ffffff; --code-bg:#0b1020; --code-fg:#e5e7eb; }
+    *{box-sizing:border-box} body{font-family:ui-sans-serif,system-ui,'Segoe UI',Arial,sans-serif;margin:24px;color:var(--fg);background:var(--bg)}
+    h1{margin:0 0 12px} .summary{color:var(--muted);margin-bottom:16px}
+    .step{border:1px solid var(--bd);border-radius:8px;margin:12px 0;padding:8px;background:#fff} .step>summary{cursor:pointer;font-weight:600;outline:none}
+    .step.passed{border-left:4px solid var(--ok)} .step.failed{border-left:4px solid var(--err)} .step.skipped{border-left:4px solid var(--skip)}
+    .status{display:inline-block;width:90px} .name{margin-left:8px} .time{float:right;color:var(--muted);font-weight:400}
+    pre{background:var(--code-bg);color:var(--code-fg);padding:10px;border-radius:6px;overflow:auto;margin:10px 0 0}
+    img{max-width:100%;margin-top:10px;border:1px solid var(--bd);border-radius:4px}
+    @media (prefers-color-scheme: dark) { :root { --bg:#0b0f19; --fg:#e5e7eb; --bd:#374151; --muted:#9ca3af; } .step{background:#111827} }
+  </style>
+</head>
+<body>
+  <h1>Run Report</h1>
+  <div class="summary"><b>Flow:</b> test-flow-developer &nbsp; <b>Generated:</b> 8/19/2025, 4:11:05 PM</div>
+  
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">login</span>
+          <span class="time">2025-08-19T08:06:32.779Z → 2025-08-19T08:06:37.466Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "username": "xingyl4"
+}</pre>
+        <img src="screenshots/login.png" alt="screenshot"/>
+      </details>
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">01-advancedSearch</span>
+          <span class="time">2025-08-19T08:06:37.574Z → 2025-08-19T08:06:55.837Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "search_id": "6000064127",
+  "advanced_query_type": "Item Revision...",
+  "search_type": "Item Revision"
+}</pre>
+        <img src="screenshots/01-advancedSearch.png" alt="screenshot"/>
+      </details>
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">02-createMechDesign</span>
+          <span class="time">2025-08-19T08:06:56.013Z → 2025-08-19T08:07:49.807Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "created_id": "3016980044",
+  "name": "Demo MD"
+}</pre>
+        <img src="screenshots/02-createMechDesign.png" alt="screenshot"/>
+      </details>
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">03-createProductPart</span>
+          <span class="time">2025-08-19T08:07:50.126Z → 2025-08-19T08:08:35.791Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "created_id": "3016980045",
+  "ITEM_NAME": "PP-01"
+}</pre>
+        <img src="screenshots/03-createProductPart.png" alt="screenshot"/>
+      </details>
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">04-saveAs</span>
+          <span class="time">2025-08-19T08:08:35.926Z → 2025-08-19T08:09:03.899Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "created_id": "3016980046",
+  "NAME": "MD-Copy"
+}</pre>
+        <img src="screenshots/04-saveAs.png" alt="screenshot"/>
+      </details>
+      <details class="step passed">
+        <summary>
+          <span class="status">PASSED</span>
+          <span class="name">05-createChanges</span>
+          <span class="time">2025-08-19T08:09:04.016Z → 2025-08-19T08:09:35.462Z</span>
+        </summary>
+        
+        <pre class="meta">{
+  "CR_number": "CR-000003863"
+}</pre>
+        <img src="screenshots/05-createChanges.png" alt="screenshot"/>
+      </details>
+      <details class="step failed">
+        <summary>
+          <span class="status">FAILED</span>
+          <span class="name">06-submitWorkflow</span>
+          <span class="time">2025-08-19T08:09:35.738Z → 2025-08-19T08:11:04.996Z</span>
+        </summary>
+        <pre class="err">page.waitForSelector: Timeout 40000ms exceeded.
+Call log:
+[2m  - waiting for locator('.noty_message &gt; .noty_text') to be visible[22m
+
+    at submitWorkflow (C:\document\AutoTest\tc-flow-framework-v4.2\src\steps\step-submit-workflow.ts:37:14)
+    at async runStep (C:\document\AutoTest\tc-flow-framework-v4.2\src\core\flow.ts:66:10)
+    at async withRetry (C:\document\AutoTest\tc-flow-framework-v4.2\src\core\retry.ts:12:14)
+    at async runFlow (C:\document\AutoTest\tc-flow-framework-v4.2\src\core\flow.ts:203:24)
+    at async &lt;anonymous&gt; (C:\document\AutoTest\tc-flow-framework-v4.2\src\main.ts:9:3)</pre>
+        
+        <img src="screenshots/06-submitWorkflow.png" alt="screenshot"/>
+      </details>
+</body>
+</html>
